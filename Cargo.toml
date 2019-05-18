@@ -1,0 +1,8 @@
+[package]
+name = "relay"
+version = "0.1.0"
+authors = ["haze"]
+edition = "2018"
+
+[dependencies]
+serenity = { path = "/Users/haze/workspace/serenity" }
