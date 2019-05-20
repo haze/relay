@@ -57,11 +57,14 @@ impl<'a> EventHandler for Handler<'a> {
         if new_message.is_own() {
             let message_content = &new_message.content_safe();
             if let Some(command) = self.get_matching_command(message_content) {
+                println!("{:?}", command.report());
                 let mut message = new_message;
                 let result = scope(|_| command.run(&context, &mut message));
                 if let Err(why) = result {
                     println!("{:?}", why);
                 }
+            } else {
+                println!("found no command for {}", message_content);
             }
         }
     }
